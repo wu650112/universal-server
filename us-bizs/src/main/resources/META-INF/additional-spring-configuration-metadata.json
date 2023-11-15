@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "us.web.token.active.time",
+      "type": "java.lang.String",
+      "description": "Description for us.web.token.active.time."
+  }
+] }

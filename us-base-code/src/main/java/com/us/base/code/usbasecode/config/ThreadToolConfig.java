@@ -28,10 +28,15 @@ public class ThreadToolConfig {
     public ThreadPoolExecutor threadPool() {
         // 获取当前机器的核数
         int cpuNum = Runtime.getRuntime().availableProcessors();
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(cpuNum * 2, cpuNum * 4,
-                10L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(cpuNum * 2,
+                cpuNum * 4,
+                10L,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(
                 Integer.MAX_VALUE),
                 new ThreadPoolExecutor.CallerRunsPolicy());
+
+
         log.info("=====================================");
         log.info("=====================================");
         log.info("=====================================");

@@ -5,6 +5,7 @@ import com.us.base.code.usbasecode.base.dao.UsBaseRespResult;
 import com.us.base.code.usbasecode.base.enums.BaseBizsExceptionEnum;
 import com.us.base.code.usbasecode.base.exception.UsBaseException;
 import com.us.base.code.usbasecode.util.RedissonLocker;
+import com.us.base.code.usbasecode.util.UsThreadExecutor;
 import com.us.bizs.dao.dto.LoginDTO;
 import com.us.bizs.service.UsUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -64,10 +68,22 @@ public class BaseInfoController {
         return UsBaseRespResult.success("1");
     }
 
+    private static final Lock REENTRANT_LOCK = new ReentrantLock();
+
+
     @PostMapping("/test2")
     public UsBaseRespResult<Integer> fakerTest2(@RequestBody JSONObject jsonObject) {
-        log.info("为什么没有出现2223dsd");
-        usUserService.test();
+
+        UsThreadExecutor.submit(() -> {
+            try {
+                if (REENTRANT_LOCK.tryLock()) {
+                    usUserService.test();
+                }
+            } finally {
+                REENTRANT_LOCK.unlock();
+            }
+        });
+
         return UsBaseRespResult.success(1);
     }
 

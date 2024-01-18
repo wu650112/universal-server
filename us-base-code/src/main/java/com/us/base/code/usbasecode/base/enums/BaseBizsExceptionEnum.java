@@ -23,6 +23,7 @@ public enum BaseBizsExceptionEnum implements BaseExceptionEnum {
      * 系统异常
      */
     WAITING_UNLOCK(false, -1, "请等待系统完成结算"),
+    CAN_NOT_EXECUTE(false, -1, "定时任务不可执行"),
     ;
 
     private Boolean success;

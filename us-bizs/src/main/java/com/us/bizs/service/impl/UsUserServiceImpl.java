@@ -3,6 +3,7 @@ package com.us.bizs.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.us.base.code.usbasecode.base.dao.UsBaseService;
 import com.us.base.code.usbasecode.base.exception.UsBaseException;
+import com.us.base.code.usbasecode.config.component.kafka.KafkaSender;
 import com.us.base.code.usbasecode.util.UsJwtUtil;
 import com.us.bizs.dao.dto.LoginDTO;
 import com.us.bizs.dao.entity.UsUser;
@@ -27,6 +28,9 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
     @Autowired
     private UsJwtUtil jwtUtil;
 
+    @Autowired
+    private KafkaSender kafkaSender;
+
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public String login(LoginDTO loginDTO) {
@@ -45,6 +49,7 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
     @Override
     public String test() {
         log.error("链路追踪哦");
+        kafkaSender.send("faker","你好啊kakfa");
         this.test3();
         return null;
     }

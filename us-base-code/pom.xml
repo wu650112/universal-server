@@ -12,6 +12,7 @@
         <groupId>com.us</groupId>
         <artifactId>universal-server</artifactId>
         <version>1.0.0</version>
+
     </parent>
 
     <!--  版本号  -->
@@ -19,9 +20,17 @@
         <pagehelper.version>4.1.6</pagehelper.version>
         <io.jsonwebtoken.version>0.7.0</io.jsonwebtoken.version>
         <redisson.version>3.16.8</redisson.version>
+        <spring-kafka.version>2.2.6.RELEASE</spring-kafka.version>
     </properties>
 
     <dependencies>
+        <!--kafka-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

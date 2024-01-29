@@ -25,13 +25,13 @@ public class GoGetInfoTask {
     @Autowired
     private UsRedisUtil redisUtil;
 
-    @Scheduled(cron = "0/5 * * * * *")
-    public void doSendRedisMsg() {
-        log.info("执行了{}次", integer.addAndGet(1));
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("time", System.currentTimeMillis());
-        jsonObject.put("from", "doSendRedisMsg");
-        jsonObject.put("msg", "你好啊！go");
-        redisUtil.lSet(GoMsgKeyConstant.GO_MSG, jsonObject.toJSONString());
-    }
+//    @Scheduled(cron = "0/5 * * * * *")
+//    public void doSendRedisMsg() {
+//        log.info("执行了{}次", integer.addAndGet(1));
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("time", System.currentTimeMillis());
+//        jsonObject.put("from", "doSendRedisMsg");
+//        jsonObject.put("msg", "你好啊！go");
+//        redisUtil.lSet(GoMsgKeyConstant.GO_MSG, jsonObject.toJSONString());
+//    }
 }

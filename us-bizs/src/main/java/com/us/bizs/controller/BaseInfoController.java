@@ -73,17 +73,7 @@ public class BaseInfoController {
 
     @PostMapping("/test2")
     public UsBaseRespResult<Integer> fakerTest2(@RequestBody JSONObject jsonObject) {
-
-        UsThreadExecutor.submit(() -> {
-            try {
-                if (REENTRANT_LOCK.tryLock()) {
-                    usUserService.test();
-                }
-            } finally {
-                REENTRANT_LOCK.unlock();
-            }
-        });
-
+        usUserService.test();
         return UsBaseRespResult.success(1);
     }
 

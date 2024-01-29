@@ -49,7 +49,7 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
     @Override
     public String test() {
         log.error("链路追踪哦");
-        kafkaSender.send("faker","你好啊kakfa");
+        kafkaSender.send("faker","你好啊kafka");
         this.test3();
         return null;
     }

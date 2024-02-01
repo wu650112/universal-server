@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 用户服务
  *
@@ -49,7 +52,11 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
     @Override
     public String test() {
         log.error("链路追踪哦");
-        kafkaSender.send("faker","你好啊kafka");
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "不是好东西！");
+        map.put("b", "是好东西");
+        map.put("c", "1");
+        kafkaSender.send("faker", map);
         this.test3();
         return null;
     }

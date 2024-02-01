@@ -26,7 +26,6 @@ public class KafkaConsumerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
-//    还没配置消费群组 所以不需要这个属性  有需要后面慢慢加
     @Value("${spring.kafka.consumer.group-id}")
     private String groupId;
 

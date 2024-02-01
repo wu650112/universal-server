@@ -18,7 +18,6 @@ public class KafkaSender {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public void send(String topic, Object msg) {
-        //向kafka的big_data_topic主题推送数据
         kafkaTemplate.send(topic, JSONObject.toJSONString(msg));
     }
 }

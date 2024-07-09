@@ -1,11 +1,11 @@
 package com.us.bizs.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.us.base.code.usbasecode.annotation.NotNeedToken;
 import com.us.base.code.usbasecode.base.dao.UsBaseRespResult;
 import com.us.base.code.usbasecode.base.enums.BaseBizsExceptionEnum;
 import com.us.base.code.usbasecode.base.exception.UsBaseException;
 import com.us.base.code.usbasecode.util.RedissonLocker;
-import com.us.base.code.usbasecode.util.UsThreadExecutor;
 import com.us.bizs.dao.dto.LoginDTO;
 import com.us.bizs.service.UsUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,11 +38,13 @@ public class BaseInfoController {
     @Autowired
     private RedissonLocker locker;
 
+
     /**
      * 登录接口
      */
     @PostMapping("/login")
-    public UsBaseRespResult<String> getAppointmentWashServiceOrderList(@RequestBody LoginDTO userLogin) {
+    @NotNeedToken
+    public UsBaseRespResult<String> login(@RequestBody LoginDTO userLogin) {
         return UsBaseRespResult.success(usUserService.login(userLogin));
     }
 

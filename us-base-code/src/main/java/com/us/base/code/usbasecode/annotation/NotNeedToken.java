@@ -13,10 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NeedToken {
+public @interface NotNeedToken {
 
-    /**
-     * 是否开启幂等校验
-     */
-    boolean idempotence() default false;
+
 }

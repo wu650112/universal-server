@@ -36,6 +36,10 @@ public class UsBaseRespResult<T> implements Serializable {
         return new UsBaseRespResult<T>(true, 0, "请求成功", data);
     }
 
+    public static <T> UsBaseRespResult<T> ok() {
+        return new UsBaseRespResult<T>(true, 0, "请求成功", null);
+    }
+
     public static <T> UsBaseRespResult<T> fail(String msg) {
         if (StringUtil.isEmpty(msg)) {
             msg = "请求失败";

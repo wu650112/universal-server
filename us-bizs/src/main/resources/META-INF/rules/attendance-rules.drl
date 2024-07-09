@@ -1,0 +1,21 @@
+package rules
+
+import com.us.bizs.dao.entity.user.hr.HrAttendancePunchRecord
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+rule "正常班次"
+when
+    $attendance : HrAttendancePunchRecord(
+    attendancePunchTime >= LocalDateTime.of(attendancePunchTime.toLocalDate(), LocalTime.of(9, 0))
+    &&attendancePunchTime <= LocalDateTime.of(attendancePunchTime.toLocalDate(), LocalTime.of(18, 0))
+    )
+then
+    $attendance.setValidStatus(1);
+end
+
+
+
+
+
+

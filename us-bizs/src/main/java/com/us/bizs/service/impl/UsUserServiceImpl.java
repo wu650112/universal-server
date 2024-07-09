@@ -9,7 +9,6 @@ import com.us.bizs.dao.dto.LoginDTO;
 import com.us.bizs.dao.entity.UsUser;
 import com.us.bizs.dao.mapper.UserMapper;
 import com.us.bizs.service.UsUserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,7 +24,6 @@ import java.util.Map;
  * @date 2023/7/21
  */
 @Service
-@Slf4j
 public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> implements UsUserService {
 
     @Autowired
@@ -45,8 +43,8 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
         if (u == null) {
             throw new UsBaseException("找不到用户！");
         }
-        log.info("阿达");
-        return jwtUtil.generateToken(u.getLoginName(), u.getName());
+        log.warn("阿达");
+        return jwtUtil.generateToken(u.getLoginName(), u.getName(), u.getId());
     }
 
     @Override
@@ -62,6 +60,6 @@ public class UsUserServiceImpl extends UsBaseService<UserMapper, UsUser> impleme
     }
 
     private void test3() {
-        log.info("试试看");
+        log.warn("试试看");
     }
 }

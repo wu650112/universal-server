@@ -1,6 +1,5 @@
 package com.us.base.code.usbasecode.util;
 
-import com.us.base.code.usbasecode.base.dao.BaseUserInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -35,10 +34,11 @@ public class UsJwtUtil {
      * @return token
      * @date 2023/8/31
      */
-    public String generateToken(String username, String name) {
+    public String generateToken(String username, String name,Integer userId) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("user", username);
         claims.put("name", name);
+        claims.put("userId", userId);
         if (expirationTime == null || expirationTime < 1) {
             expirationTime = 60 * 60 * 1000L;
         }
@@ -60,6 +60,8 @@ public class UsJwtUtil {
                 .parseClaimsJws(token)
                 .getBody();
         baseUserInfo.setLoginName(String.valueOf(claims.get("user")));
+        baseUserInfo.setUserId(Integer.valueOf(claims.get("userId").toString()));
+        baseUserInfo.setUserName(String.valueOf(claims.get("name")));
         return baseUserInfo;
     }
 

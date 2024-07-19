@@ -25,8 +25,11 @@ public class HrAttendancePunchAbnormalRecord extends UsBaseOpEntity {
     @TableField("user_name")
     private String userName;
 
+    /**
+     * 异常类型：1-迟到  2-早退  3-旷工 4-缺勤
+     */
     @TableField("abnormal_type")
-    private Byte abnormalType;
+    private Integer abnormalType;
 
     @TableField("abnormal_date")
     private LocalDate abnormalDate;

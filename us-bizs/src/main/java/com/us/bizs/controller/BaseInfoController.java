@@ -7,7 +7,7 @@ import com.us.base.code.usbasecode.base.enums.BaseBizsExceptionEnum;
 import com.us.base.code.usbasecode.base.exception.UsBaseException;
 import com.us.base.code.usbasecode.util.RedissonLocker;
 import com.us.bizs.dao.dto.LoginDTO;
-import com.us.bizs.service.UsUserService;
+import com.us.bizs.service.hr.UsUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;

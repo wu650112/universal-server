@@ -1,0 +1,53 @@
+package rules
+
+import com.us.bizs.dao.dto.hr.HrAbnormalRecordDTO;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.List;
+
+rule "迟到"
+when
+    $attendance : HrAbnormalRecordDTO(punchRez  cordList != null && !punchRecordList.isEmpty())
+    $punchRecords : HrAbnormalRecordDTO() from
+
+then
+    $attendance.setAbnormalType(1);
+end
+
+rule "早退"
+when
+    $attendance : HrAbnormalRecordDTO(
+        punchRecordList != null && !punchRecordList.isEmpty() &&
+        $record : HrAttendancePunchRecord() from $attendance.getPunchRecordList(),
+        $record.getAttendancePunchTime().isBefore(LocalTime.of(18, 0))
+    )
+then
+    $attendance.setAbnormalType(2);
+end
+
+rule "旷工"
+when
+    $attendance : HrAbnormalRecordDTO(
+        punchRecordList == null || punchRecordList.isEmpty(),l
+        (leaveRecords == null || leaveRecords.isEmpty())
+    )
+then
+    $attendance.setAbnormalType(3);
+end
+
+// 缺勤
+rule "缺勤"
+when
+    $attendance : HrAbnormalRecordDTO(punchRecordList != null && !punchRecordList.isEmpty())
+        $record :  $attendance.getPunchRecordList()(
+                $record.getAttendancePunchTime().isAfter(LocalTime.of(9, 0)) && $record.getAttendancePunchTime().isBefore(LocalTime.of(18, 0))
+        )
+
+then
+    $attendance.setAbnormalType(4);
+end
+
+
+
+

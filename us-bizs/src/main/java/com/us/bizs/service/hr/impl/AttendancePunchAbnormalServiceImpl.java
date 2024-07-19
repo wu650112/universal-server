@@ -1,9 +1,9 @@
-package com.us.bizs.service.impl;
+package com.us.bizs.service.hr.impl;
 
 import com.us.base.code.usbasecode.base.dao.UsBaseService;
 import com.us.bizs.dao.entity.user.hr.HrAttendancePunchAbnormalRecord;
 import com.us.bizs.dao.mapper.user.hr.HrAttendancePunchAbnormalRecordMapper;
-import com.us.bizs.service.AttendancePunchAbnormalService;
+import com.us.bizs.service.hr.AttendancePunchAbnormalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

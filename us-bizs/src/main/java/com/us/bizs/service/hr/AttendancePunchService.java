@@ -1,4 +1,4 @@
-package com.us.bizs.service;
+package com.us.bizs.service.hr;
 
 import com.us.bizs.dao.entity.user.hr.HrAttendancePunchRecord;
 import com.us.bizs.vo.PunchInVO;

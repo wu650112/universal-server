@@ -1,7 +1,7 @@
 package com.us.bizs.controller;
 
 import com.us.base.code.usbasecode.base.dao.UsBaseRespResult;
-import com.us.bizs.service.AttendancePunchService;
+import com.us.bizs.service.hr.AttendancePunchService;
 import com.us.bizs.vo.PunchInVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

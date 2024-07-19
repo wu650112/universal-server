@@ -1,4 +1,4 @@
-package com.us.bizs.service;
+package com.us.bizs.service.hr;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.us.bizs.dao.dto.LoginDTO;

@@ -1,7 +1,7 @@
 package com.us.bizs.strategy.hr;
 
 import com.us.bizs.dao.entity.user.hr.HrAttendancePunchAbnormalRecord;
-import com.us.bizs.service.impl.AttendancePunchAbnormalServiceImpl;
+import com.us.bizs.service.hr.impl.AttendancePunchAbnormalServiceImpl;
 import com.us.bizs.strategy.BaseStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

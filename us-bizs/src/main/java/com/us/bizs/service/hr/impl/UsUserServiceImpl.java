@@ -1,4 +1,4 @@
-package com.us.bizs.service.impl;
+package com.us.bizs.service.hr.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.us.base.code.usbasecode.base.dao.UsBaseService;
@@ -8,7 +8,7 @@ import com.us.base.code.usbasecode.util.UsJwtUtil;
 import com.us.bizs.dao.dto.LoginDTO;
 import com.us.bizs.dao.entity.UsUser;
 import com.us.bizs.dao.mapper.UserMapper;
-import com.us.bizs.service.UsUserService;
+import com.us.bizs.service.hr.UsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

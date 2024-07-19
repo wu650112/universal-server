@@ -1,6 +1,6 @@
 package com.us.bizs;
 
-import com.us.bizs.service.UsUserService;
+import com.us.bizs.service.hr.UsUserService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

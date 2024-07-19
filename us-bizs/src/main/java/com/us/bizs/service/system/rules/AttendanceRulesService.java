@@ -1,4 +1,4 @@
-package com.us.bizs.service.system;
+package com.us.bizs.service.system.rules;
 
 import com.us.bizs.dao.entity.user.hr.HrAttendancePunchAbnormalRecord;
 import com.us.bizs.dao.entity.user.hr.HrAttendancePunchRecord;
